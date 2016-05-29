@@ -17,6 +17,11 @@ public class CharacterCount {
 		int count=counter.countCharInStr('b', str);
 		System.out.println("count:"+count);
 	}
+	
+	public String countEachCharFrequency(final String  word)
+	{
+		return null;
+	}
 
 	public boolean validateStr(final String word)
 	{
