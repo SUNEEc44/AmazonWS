@@ -1,0 +1,24 @@
+	
+import java.util.*;
+class gAlg{
+
+public static void main(String[] args){
+
+int[] a = new int[5];
+int[] b = new int[5];
+int[] c = new int[5];
+int sum= 0;
+a[0]=2;a[1]=8;a[2]=9;a[3]=7;a[4]=10;
+b[0]=3;b[1]=2;b[2]=10;b[3]=9;b[4]=9;
+
+System.out.println(Arrays.toString(a));
+System.out.println(Arrays.toString(b));
+int i;
+for(i=0;i<5;i++){
+c[i]=Math.max(a[i],b[i]);
+sum = sum+c[i];
+}
+System.out.println(Arrays.toString(c));
+System.out.println(sum);
+}
+}

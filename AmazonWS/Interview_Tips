@@ -1,0 +1,80 @@
+Amazon Interview process
+
+Read following:
+
+1) Data Structures
+2) algorithm
+3) Software architecture design
+4) Writing code on paper
+5) trees and srings 
+6) Greedy algorithm
+
+
+Interview Questions:
+
+1) 	Diameter of a tree.
+2)	Stack boarding passes into source and destination.
+3) Design system to do a db switch.  
+4) Implement LRU Cache  
+5) Solve algorith equation
+6) Reverse the bit of a given integer.
+7) Give a efficient data-structure/algorithm for auto-complete/auto-correct of a word typed in a search bar.
+8) Find kth largest element in 2 sorted arrays.
+9) Find longest increasing subsequence in an array.
+10) Find the largest rectangle in histogram.
+11) Tell me when you disagreed with your manager  
+12) From a 2D array of 1s and 0s find the sets of 1s
+13) Behavioural questions
+14) Project Discussion
+15) Asked me to design a Potato Chips Factory by OOAD means
+16) Breadth first search vs ????
+17) Some tree based navigation questions
+18) A OOD design question
+19) A system design question
+20) Some array and list based questions
+21) Design:  restaurant booking system
+22) Linked List: Check palindrome or not. 1 2 3 4 3 2 1
+23) Given a single linked list of integers determine if it is palindrome. like 1 2 3 4 3 2 1. Need to support 1 2 3 3 4 3 3 1 as well. No extra allocation or space should be consumed.( can use some temp variable).
+24) Given an array of integers A . Create one more arrary B fill each element (i th position) with the highest freq element from (0 to ith position in A array).
+25) Given a series of number form a binary tree find the least the minimum weight binary tree. The weight of the node is depth x value of the element + weight of the left tree + weight of the right tree.Weight of the root node is the weight of the tree . Find the minimum weight binary tree out of all possible binary trees that are possible. And the code should return the minimum weight.
+ 
+
+CHENNAI
+
+26) Implement Facebook features
+
+BANGLORE(2013)
+
+27) In an array of integers, find pair of integers whose sum is equal to closest to K
+28) getIntegerComplement() function implement
+29) Subroot in a Binary tree with longest leaf-to-leaf path  
+
+ANS: 
+in binary tree the parents and child are attached . the insert will be done recursively
+the insert call will return true if the height of the sub-tree has changed. the parent is the root & child is sub-root of the binary tree
+
+BANGLORE(2012)
+
+30) Print a tree in level order (alternate levels should be in reverse order)
+31) Find the largest binary search tree in a binary tree
+32) find K closest point from a set of n points from a given point p.  
+
+HYDERABAD(2012)
+
+33)Data structures and algorithms
+34) Two sorted arrays. you can start from any one them, and then at common element you may or may not jump to other array. Continue in this manner till you reach the end of an array. Find the path that results the maximum sum
+
+BANGLORE(2011)
+
+35) Design movie reservation system with ER diagram (similar to bookmyshow.com for a multiplex theater) ::: Consider movie, show time, seat availability, ticket price (different for different seat types)
+36) Write a code/logic to find the longest path in a cyclic graph :::: 
+			Finding longest path between two nodes in a graph is an NP Hard problem. So, we should not try to find a polynomial solution to this problem.
+
+				As you can see the given problem is of very small size. So even brute force is acceptable.
+
+					Solution:
+				Let there be n cities. GIven starting city as S and destination city as D. We are left with n-2 cities.
+				There are approximately 2^(n-2) * (n-2)! ways for reaching D from S.
+				Find length of all these ways and choose the smallest one.
+37)BST: Binary Search Tree.
+38) 2^5  = ?

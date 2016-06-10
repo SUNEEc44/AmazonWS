@@ -1,0 +1,9 @@
+Considerations:
+1) Multiple Languages
+2) Multiple Currencies				-- have to accept multiple currencies   -- quote in  US dollors and convert them during sale
+3) Multiple Cultures
+4) Multiple tax laws
+5) Multiple shipping/custom rules
+
+
+Multiple type payments --- Credit Cards,debit cards etc..  -- Credit-card transactions are fairly easy to process electronically and have the advantage that credit-card processors will do the currency exchange for you automatically.
