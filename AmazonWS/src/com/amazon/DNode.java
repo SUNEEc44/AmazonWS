@@ -3,8 +3,8 @@ package com.amazon;
 public class DNode {
 	
 	public int value;
-	public Node next;
-	public Node prev;
+	public DNode next;
+	public DNode prev;
 	
 	
 	public DNode(int value){
@@ -40,8 +40,7 @@ public class DNode {
 
 	@Override
 	public String toString() {
-		return "DNode [value=" + value + ", next=" + next + ", prev=" + prev
-				+ "]";
+		return "DNode [value=" + value + ", next=" + next + "]";
 	}
 
 	
