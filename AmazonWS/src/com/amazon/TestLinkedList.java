@@ -7,6 +7,7 @@ public class TestLinkedList {
 		
 		System.out.println(ll);
 		
+		System.out.println(ll.count);
 //		System.out.println(ll.contains(1));
 //		System.out.println(ll.contains(45));
 //		System.out.println(ll.contains(60));
@@ -32,7 +33,7 @@ public class TestLinkedList {
 	public static SinglyLinkedList populateLinkedList(int range)
 	{
 		SinglyLinkedList ll=new SinglyLinkedList();
-		for (int i = 1; i < range; i++) {
+		for (int i = 1; i <=range; i++) {
 			ll.add(i*(int)(Math.random()*100));
 		}
 		return ll;

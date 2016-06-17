@@ -3,15 +3,17 @@ package com.amazon;
 public class SinglyLinkedList {
 	Node head;
 	Node tail;
-	
+	int count=0;
 	public SinglyLinkedList() {
 		head=null;
 		tail=null;
+		count=0;
 	}
 	
 	public SinglyLinkedList(int value){
 		head=new Node(value);
 		tail=head;
+		count++;
 	}
 	
 	public boolean add(int value)
@@ -23,7 +25,9 @@ public class SinglyLinkedList {
 			Node node=new Node(value);
 			tail.next=node;
 			tail=node;
+			
 		}
+		count++;
 		return Boolean.TRUE;
 		
 	}
@@ -50,7 +54,6 @@ public class SinglyLinkedList {
 		if(head==null){
 			return Boolean.FALSE;
 		}
-		
 		Node n = head;
 		if(n.value==value)
 		{
@@ -60,6 +63,7 @@ public class SinglyLinkedList {
 			}else{
 				head=head.next;
 			}
+			count--;
 			return Boolean.TRUE;
 		}
 			while(n.next!=null && n.next.value!=value){
@@ -72,6 +76,7 @@ public class SinglyLinkedList {
 				}else{
 					n.next=n.next.next;
 				}
+				count--;
 				return Boolean.TRUE;	
 			}
 			
