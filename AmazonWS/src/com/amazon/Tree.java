@@ -1,5 +1,8 @@
 package com.amazon;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
 	
 	public TreeNode root;
@@ -56,7 +59,7 @@ public class Tree {
 	/**
 	 * the value to remove is a leaf node or
 	 * the value to remove has a right subtree, but no left subtree or
-	 * the value to remove has  a left subtree , but no right subtree
+	 * the value to remove has  a lOeft subtree , but no right subtree
 	 * the value to remove has both left subtree, and right subtree in which case we promote the largest value in the left subtree
 	 * the value to remove is a root node (1 st case)
 	 * @param value
@@ -71,7 +74,7 @@ public class Tree {
 			return Boolean.FALSE;
 		}
 		
-		TreeNode parent=findNode(value, root);
+		TreeNode parent=findParent(value, root);
 		if(count==1){
 			root=null;
 		}else if(nodeToRemove.leftNode==null && nodeToRemove.rightNode==null) { //leafNode case 1
@@ -97,8 +100,8 @@ public class Tree {
 			while(largestValueNode.rightNode!=null){
 				largestValueNode=largestValueNode.rightNode; //get maximum in the left sub tree.
 			}
-			TreeNode largestValueparent=findParent(largestValueNode.value, largestValueNode);
-			largestValueparent.rightNode=null;
+			TreeNode largestValueparent=findParent(largestValueNode.value, root);
+			largestValueparent.leftNode=null;
 			nodeToRemove.value=largestValueNode.value;
 			
 		}
@@ -224,6 +227,8 @@ public class Tree {
 			}else{
 				System.out.println(value+"<-------R");
 			}
+		}else{
+			System.out.println("----->ROOT---->"+value);
 		}
 	}
 	
@@ -243,6 +248,44 @@ public class Tree {
 		
 		
 		return 0;
+	}
+	
+	public void breadthFirst(TreeNode currentNode){
+		if(root!=null){
+			Queue<TreeNode> queue=new LinkedList<TreeNode>();
+			
+			while(currentNode!=null){
+			
+				printValue(currentNode.value);
+				
+				if(currentNode.leftNode!=null){
+					queue.add(currentNode.leftNode);
+				}
+				if(currentNode.rightNode!=null){
+					queue.add(currentNode.rightNode);
+				}
+				if(queue!=null && !queue.isEmpty()){
+					currentNode=queue.poll();
+				}else{
+					currentNode=null;
+				}
+			}
+		}
+	}
+	
+	public int height(TreeNode currentNode){
+		if(root==null|| currentNode==null)
+		{
+			return 0;
+		}
+		if(root.leftNode==null && root.rightNode==null)
+		{
+			return 1;
+		}
+		int lheight=height(currentNode.leftNode);
+		int rheight=height(currentNode.rightNode);
+		
+		return lheight>rheight?lheight+1:rheight+1;
 	}
 	@Override
 	public String toString() {
