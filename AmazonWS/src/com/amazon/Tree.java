@@ -1,6 +1,8 @@
 package com.amazon;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Tree {
@@ -250,6 +252,46 @@ public class Tree {
 		return 0;
 	}
 	
+	public int getMaxWidth(TreeNode currentNode)
+	{
+		if(root==null){
+			return 0;
+		}
+		if(root.leftNode==null && root.rightNode==null)
+		{
+			return 1;
+		}
+		
+		int maxWidth=0;
+		int width;
+		int h=height(currentNode);
+		int i;
+		
+		for(i=1;i<=h;i++){
+			width=getWidth(currentNode, i);
+			if(width>maxWidth){
+				maxWidth=width;
+			}
+		}
+		
+		return maxWidth;
+	}
+	
+	
+	
+	public int getWidth(TreeNode currentNode, int level)
+	{
+		if(root==null || currentNode==null){
+			return 0;
+		}
+		if(level==1){
+			return 1;
+		}else if(level>1){
+			return getWidth(currentNode.leftNode, level-1)+getWidth(currentNode.rightNode, level-1);
+		}
+		return 0;
+	}
+	
 	public void breadthFirst(TreeNode currentNode){
 		if(root!=null){
 			Queue<TreeNode> queue=new LinkedList<TreeNode>();
@@ -273,6 +315,86 @@ public class Tree {
 		}
 	}
 	
+	
+	public void breadthFirstRL(TreeNode currentNode){
+		if(root!=null){
+			Queue<TreeNode> queue=new LinkedList<TreeNode>();
+			
+			while(currentNode!=null){
+			
+				printValue(currentNode.value);
+				
+				if(currentNode.rightNode!=null){
+					queue.add(currentNode.rightNode);
+				}
+				if(currentNode.leftNode!=null){
+					queue.add(currentNode.leftNode);
+				}
+				if(queue!=null && !queue.isEmpty()){
+					currentNode=queue.poll();
+				}else{
+					currentNode=null;
+				}
+			}
+		}
+	}
+	
+	public void breadthFirstS(TreeNode currentNode){
+		if(root!=null){
+			Queue<TreeNode> queue=new LinkedList<TreeNode>();
+			
+			int h=height(currentNode);
+			
+			List<Integer> holdValues=new ArrayList<Integer>();
+			
+			while(currentNode!=null){
+			
+				printValue(currentNode.value);
+				
+					if(currentNode.leftNode!=null){
+						queue.add(currentNode.leftNode);
+					}
+					if(currentNode.rightNode!=null){
+						queue.add(currentNode.rightNode);
+					}
+				}
+				
+				if(queue!=null && !queue.isEmpty()){
+					currentNode=queue.poll();
+				}else{
+					currentNode=null;
+				}
+		}
+	}
+	
+	public int getLevel(TreeNode currentNode)
+	{
+		if(root==null || currentNode==null)
+		{
+			return 0;
+		}
+		if(root.leftNode==null && root.rightNode==null)
+		{
+			return 1;
+		}
+		
+		if(root.value==currentNode.value){
+			return 1;
+		}
+		
+		TreeNode parent=findParent(currentNode.value, currentNode);
+		if(parent==null){
+			return 1;
+		}
+		int i=0;
+		while(parent.value!=root.value){
+			parent=findParent(parent.value, parent);
+			i++;
+		}
+		
+		
+		return i;
+	}
 	public int height(TreeNode currentNode){
 		if(root==null|| currentNode==null)
 		{
@@ -287,6 +409,45 @@ public class Tree {
 		
 		return lheight>rheight?lheight+1:rheight+1;
 	}
+	
+	
+	public Tree shortestPath(TreeNode currentNode,final int value)
+	{
+		
+		Queue<Integer> queue=new LinkedList<Integer>();
+		if(root==null){
+			return null;
+		}else if(root.value==value){
+			queue.add(root.value);
+		}else if(root.leftNode==null && root.rightNode==null)
+		{
+			return null;
+		}else{
+			queue.add(root.value);
+		while(currentNode.value!=value)
+		{
+			if(value<currentNode.value && currentNode.leftNode!=null){
+				queue.add(currentNode.leftNode.value);
+				currentNode=currentNode.leftNode;
+			}else if(value>currentNode.value && currentNode.rightNode!=null){
+				queue.add(currentNode.rightNode.value);
+				currentNode=currentNode.rightNode;
+			}
+		}
+		}
+		Tree tree=new Tree();
+		while(!queue.isEmpty()){
+			tree.insert(queue.poll());
+		}
+		
+		return tree;
+		
+	}
+	
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Tree [root=" + root + "]";

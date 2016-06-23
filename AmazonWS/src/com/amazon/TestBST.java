@@ -25,11 +25,18 @@ public class TestBST {
 		
 		System.out.println("Count---->"+tree.count);
 		
-		System.out.println("Remove 58---->"+tree.remove(142));
+		System.out.println("Width:"+tree.getWidth(tree.root.leftNode.leftNode,3));
+		System.out.println("Max Width:"+tree.getMaxWidth(tree.root));
+		
+//		System.out.println("Remove 58---->"+tree.remove(142));
 		
 		System.out.println("Count---->"+tree.count);
 		
 		System.out.println(tree);
+		
+		
+		System.out.println("shortest path------>"+tree.shortestPath(tree.root,	 149));
+		
 		
 //		System.out.println("---------------------PREORDER---------------------------");
 //		
@@ -41,9 +48,11 @@ public class TestBST {
 //		
 		System.out.println("---------------------BREADTH FIRST SEARCH---------------------------");
 //		
-		tree.breadthFirst(tree.root);
+		tree.breadthFirstS(tree.root);
 //		
 		System.out.println("-----------height:"+tree.height(tree.root));
+		
+		System.out.println("Level----->"+tree.getLevel(tree.root));
 		
 		
 	}
