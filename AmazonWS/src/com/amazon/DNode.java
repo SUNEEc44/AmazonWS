@@ -3,6 +3,7 @@ package com.amazon;
 public class DNode {
 	
 	public int value;
+	public int key;
 	public DNode next;
 	public DNode prev;
 	
@@ -13,6 +14,11 @@ public class DNode {
 		this.prev=null;
 	}
 
+	public DNode(int key,int value)
+	{
+		this.key=key;
+		this.value=value;
+	}
 
 	
 	
